@@ -1,0 +1,21 @@
+<h3>Tabla de jugadores</h3>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Capital</th>
+            <th>Población</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let country of countries | slice : (currentPage - 1) * 10 : currentPage * 10; let i = index;">
+                <td>{{ i }}</td>
+                <td>{{ country.name.common }}</td>
+                <td>{{ country.capital }}</td>
+                <td>{{ country.population }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ngb-pagination [(page)]="currentPage" [pageSize]="10" [collectionSize]="countries.length">
+    </ngb-pagination>
+</div>
