@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-12 col-sm-auto">
+      <label for="firstName" class="form-label required">Nombre</label>
+      <input type="text" class="form-control" [class.is-invalid]="isInvalid(form.controls.firstName)" formControlName="firstName" id="firstName">
+    </div>
+    <div class="col-12 col-sm-auto">
+      <label for="lastName" class="form-label required">Apellido</label>
+      <input type="text" class="form-control" [class.is-invalid]="isInvalid(form.controls.lastName)" formControlName="lastName" id="lastName">
+    </div>
+    <div class="col-12 col-sm-auto">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" [class.is-invalid]="isInvalid(form.controls.email)" formControlName="email" id="email">
+      <div class="invalid-feedback">
+        El email debe tener un formato válido
+      </div>
+    </div>
+    <div class="col-12 col-sm-auto">
+      <label for="gender" class="form-label required">Género</label>
+      <select class="form-select" aria-label="Default select example" formControlName="gender" id="gender">
+        <option value="" disabled selected>Seleccione</option>
+        <option [ngValue]="'M'">Masculino</option>
+        <option [ngValue]="'F'">Femenino</option>
+        <option [ngValue]="'O'">Otro</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <button type="submit" class="btn btn-outline-primary" [disabled]="form.invalid">Registrar</button>
+    </div>
+  </div>
+  <pre>
+    {{ form.controls.firstName.errors | json }}
+    {{ form.controls.lastName.errors | json }}
+    {{ form.controls.email.errors | json }}
+    {{ form.controls.gender.errors | json }}
+  </pre>
+</form>

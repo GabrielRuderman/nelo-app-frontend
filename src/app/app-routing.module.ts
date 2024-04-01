@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AltaJugadoresModule } from './jugadores/alta-jugadores/alta-jugadores.module';
 
 const routes: Routes = [
   {
-    path: 'alta-jugadores',
-    loadChildren: () => import('./jugadores/alta-jugadores/alta-jugadores.module').then(m => m.AltaJugadoresModule)
-  },
-  {
-    path: 'jugadores',
-    loadChildren: () => import('./jugadores/tabla-jugadores/tabla-jugadores.module').then(m => m.TablaJugadoresModule)
+    path: '',
+    loadChildren: () => import('./player/player.module').then(m => m.PlayerModule)
   },
   {
     path: '**',
-    redirectTo: 'jugadores',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];
