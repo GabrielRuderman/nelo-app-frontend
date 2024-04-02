@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { HeaderModule } from './header/header.module';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './core/login/login.component';
 
 @NgModule({
   declarations: [

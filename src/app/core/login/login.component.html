@@ -1,0 +1,16 @@
+<main class="w-100 m-auto d-flex align-items-center">
+    <form class="row" [formGroup]="loginForm">
+        <h2>Bienvenido</h2>
+        <div class="col-12">
+            <label for="floatingInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="floatingInput" formControlName="email">
+        </div>
+        <div class="col-12">
+            <label for="floatingPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="floatingPassword" formControlName="password">
+        </div>      
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary" [disabled]="loginForm.invalid" (click)="onSubmit()">Ingresar</button>
+        </div>
+    </form>
+</main>
